@@ -16,7 +16,7 @@ if (process.argv.length > 2) {
 }
 if (arg.has('help') || (!arg.get('curr') || !arg.get('new'))) {
     console.log('HELP');
-    console.log('- This Script is user to rename all the fine in given dir -');
+    console.log('## This Script is user to rename all the fine in given dir ##');
     console.log('use the following argument to this script to be work properly');
     console.log('--curr=<string to be replace>');
     console.log('--new=<string which be replace>');
