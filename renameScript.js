@@ -28,15 +28,13 @@ rename(path.resolve())
 
 function rename(path1) {
     fs.readdir(path1, (err, data) => {
-        if (err) return
+        if (err) return;
         data.forEach(x => {
             let newName = x.replace(arg.get('curr'), arg.get('new'))
-            if (x.includes(arg.get('curr'))) {
-                fs.rename(path.join(path1, x), path.join(path1, newName), (err, data) => {
-                    if (err) return
-                    rename(path.join(path1, newName))
-                })
-            }
+            fs.rename(path.join(path1, x), path.join(path1, newName), (err, data) => {
+                if (err) return
+                rename(path.join(path1, newName))
+            })
         })
     })
 }
