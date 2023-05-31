@@ -3,12 +3,14 @@
 let arg = new Map()
 if (process.argv.length > 2) {
     process.argv.slice(2).forEach(x => {
-        x = x.replace('--', '').toLowerCase()
-        x = x.replace('-', '')
         if (x.includes('=')) {
             const [key, val] = x.split('=')
+            key = key.replace('--', '').toLowerCase()
+            key = key.replace('-', '')
             arg.set(key, val)
         } else {
+            x = x.replace('--', '').toLowerCase()
+            x = x.replace('-', '')
             x = x.toLowerCase();
             arg.set(x, null)
         }
