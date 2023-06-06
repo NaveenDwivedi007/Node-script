@@ -4,9 +4,11 @@ let arg = new Map()
 if (process.argv.length > 2) {
     process.argv.slice(2).forEach(x => {
         if (x.includes('=')) {
-            const [key, val] = x.split('=')
-            key = key.replace('--', '').toLowerCase()
-            key = key.replace('-', '')
+            let [key, val] = x.split('=')
+            if (key) {
+                key = key.replace('--', '').toLowerCase()
+                key = key.replace('-', '')
+            }
             arg.set(key, val)
         } else {
             x = x.replace('--', '').toLowerCase()
